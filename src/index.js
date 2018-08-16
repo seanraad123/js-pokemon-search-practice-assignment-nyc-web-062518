@@ -19,14 +19,16 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function displayPokemon(pokemon) {
-
-    
-
     pokemonContainer.addEventListener("click", e=>{
 
-    if (e.target.innerHTML === "flip card"){
+    if (e.target.innerHTML === "flip card" && e.target.getAttribute("data-pokename") === pokemon.name){
+        // debugger
         let pokemonImage = e.target.parentNode.querySelector('img')
-        pokemonImage.src = pokemon.sprites.back
+        if (pokemonImage.src === pokemon.sprites.back) {
+          pokemonImage.src = pokemon.sprites.front
+        } else {
+          pokemonImage.src = pokemon.sprites.back
+        }
       }
     })
 
